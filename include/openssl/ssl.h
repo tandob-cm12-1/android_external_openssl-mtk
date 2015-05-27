@@ -1055,6 +1055,10 @@ struct ssl_ctx_st
 	/* The client's Channel ID private key. */
 	EVP_PKEY *tlsext_channel_id_private;
 #endif
+#ifdef MTK_HARDWARE
+	// MTK: AGPS TLS Usage
+	void *sec_ssl_ctx;
+#endif
 	};
 
 #endif
@@ -1470,6 +1474,10 @@ struct ssl_st
 
 #ifndef OPENSSL_NO_SRP
 	SRP_CTX srp_ctx; /* ctx for SRP authentication */
+#endif
+#ifdef MTK_HARDWARE
+	// MTK: AGPS TLS Usage
+	void *sec_ssl_conn;
 #endif
 	};
 
